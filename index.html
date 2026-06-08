@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Zarith's Personal Website</title>
+
+<meta name="keywords" content="IML254, Personal Website, UiTM, Student Project, Zarith Sofea" />
+<meta name="description" content="Personal Website project for IML254 - Introduction to Web Content Development" />
+<meta name="author" content="Zarith Sofea" />
+
+<link rel="stylesheet" type="text/css" href="style.css" />
+
+<style type="text/css">
+/*<![CDATA[*/
+html, body {
+  background-color: #ffffff;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100%;
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.master-container {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  background-color: #ffffff;
+  border-radius: 0px !important;
+  overflow: hidden;
+  box-shadow: none;
+}
+
+.banner-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.nav-bar {
+  background-color: #1a2e40;
+  padding: 12px 20px;
+  display: table;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.nav-links {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.nav-item {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+  margin-right: 5px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.nav-item:hover {
+  background-color: #2b4560;
+}
+
+.nav-active {
+  background-color: #2b6cb0 !important;
+  font-weight: 600;
+}
+
+.nav-clock {
+  display: table-cell;
+  text-align: right;
+  vertical-align: middle;
+  color: #90cdf4;
+  font-family: monospace;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#content-mainframe-viewport {
+  width: 100%;
+  background-color: #ffffff;
+}
+
+iframe {
+  border: 0;
+  width: 100%;
+  height: 780px;
+  display: block;
+}
+/*]]>*/
+</style>
+</head>
+<body>
+
+<div class="master-container">
+  
+  <div id="header-region">
+    <img src="images/banner.jpg" alt="Zarith's Personal Website Banner" class="banner-image" />
+  </div>
+
+  <table style="width: 100%; background-color: #d2e4f0; border-collapse: collapse; border: 0;">
+  <tr>
+    <td style="padding: 10px 25px; font-family: 'Segoe UI', sans-serif; font-size: 13px; color: #4a5568; vertical-align: middle;">
+      🎧 <strong>Continuous Ambient Track:</strong> Experience the space with ambient music!
+    </td>
+    <td style="padding: 10px 25px; text-align: right; vertical-align: middle; width: 320px;">
+      <audio controls="controls" loop="loop" style="height: 32px; width: 300px;">
+        <source src="audio/ambient.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </td>
+  </tr>
+  </table>
+
+  <div class="nav-bar">
+    <div class="nav-links">
+      <a href="home_content.html" target="viewport" class="nav-item nav-active" onclick="changeActive(this)">Home</a>
+      <a href="aboutme.html" target="viewport" class="nav-item" onclick="changeActive(this)">About Me</a>
+      <a href="education.html" target="viewport" class="nav-item" onclick="changeActive(this)">Education</a>
+      <a href="family.html" target="viewport" class="nav-item" onclick="changeActive(this)">Family</a>
+      <a href="friends.html" target="viewport" class="nav-item" onclick="changeActive(this)">Friends</a>
+      <a href="hobbies.html" target="viewport" class="nav-item" onclick="changeActive(this)">Hobbies</a>
+      <a href="interests.html" target="viewport" class="nav-item" onclick="changeActive(this)">Interests</a>
+      <a href="contact.html" target="viewport" class="nav-item" onclick="changeActive(this)">Contact</a>
+    </div>
+    <div class="nav-clock" id="live-tracker-clock">00:00:00 AM</div>
+  </div>
+
+  <div id="content-mainframe-viewport">
+    <iframe src="home_content.html" name="viewport" id="viewport-iframe"></iframe>
+  </div>
+
+  <table style="width: 100%; background-color: #f7fafc; border-top: 1px solid #e2e8f0; border-collapse: collapse; border: 0;">
+  <tr>
+    <td style="padding: 15px 25px; font-family: 'Segoe UI', sans-serif; font-size: 11px; color: #718096; text-align: center; line-height: 1.6;">
+      © 2026 Zarith Sofea. All Rights Reserved. <br />
+      <strong>Disclaimer:</strong> This website is an individual project submission prepared for IML254 - Introduction to Web Content Development. <br />
+      Recommended Settings: Best viewed on Google Chrome at 1920x1080 Resolution. Last Updated: June 2026.
+    </td>
+  </tr>
+  </table>
+
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+function changeActive(element) {
+  var tabs = document.getElementsByClassName("nav-item");
+  for (var i = 0; i < tabs.length; i++) {
+    tabs[i].classList.remove("nav-active");
+  }
+  element.classList.add("nav-active");
+}
+
+function updateClock() {
+  var now = new Date();
+  var hours = now.getHours();
+  var minutes = now.getMinutes();
+  var seconds = now.getSeconds();
+  var ampm = hours >= 12 ? 'PM' : 'AM';
+  
+  hours = hours % 12;
+  hours = hours ? hours : 12; 
+  minutes = minutes < 10 ? '0' + minutes : minutes;
+  seconds = seconds < 10 ? '0' + seconds : seconds;
+  
+  var strTime = (hours < 10 ? '0' + hours : hours) + ':' + minutes + ':' + seconds + ' ' + ampm;
+  document.getElementById('live-tracker-clock').innerHTML = strTime;
+}
+setInterval(updateClock, 1000);
+updateClock(); 
+//]]>
+</script>
+</body>
+</html>
